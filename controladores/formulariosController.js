@@ -1,4 +1,4 @@
-const { validationResult } = require('express-validator');
+const {validationResult} = require('express-validator');
 const formidable = require('formidable');
 const fs = require('fs');
 const path = require('path');
@@ -7,6 +7,7 @@ module.exports.home = (request, response) => {
 
     return response.render("formularios/home", { tituloPagina: "Formularios" });
 }
+
 module.exports.normal = (request, response) => {
 
     return response.render("formularios/normal", { tituloPagina: "Formularios simple" });
@@ -20,10 +21,11 @@ module.exports.normal_post = (request, response) => {
         return response.redirect("/formularios/normal");
     }
 
-    const { nombre, correo, telefono } = request.body;//form-data
+    const {nombre, correo, telefono} = request.body;//form-data
 
     response.send("nombre=" + nombre + " | correo=" + correo + " | teléfono=" + telefono);
 }
+
 module.exports.upload = (request, response) => {
 
     return response.render("formularios/upload", { tituloPagina: "Formularios upload" });

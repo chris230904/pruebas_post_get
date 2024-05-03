@@ -2,11 +2,12 @@ const express = require('express');
 const app = express();
 const session = require('express-session');
 const flash = require('connect-flash');
-//para poder usar variables globales
-require('dotenv').config();
-
 //para csfr
 const csrf = require('csurf');
+//para poder usar variables globales
+require('dotenv').config();
+const path = require('path')
+
 //Configuracion de sesiones
 app.use(
     session(
@@ -22,7 +23,7 @@ app.use(
 );
 
 //habilitamos para formularios
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended:true}));
 
 //inicializar CSRF
 app.use(csrf());
